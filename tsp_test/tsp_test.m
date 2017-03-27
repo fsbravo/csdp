@@ -4,7 +4,7 @@
 %
 % workspace is periodically saved to tsp_results.mat
 % 
-% author: Jose Ferreira
+% author: Jose Bravo Ferreira
 %         josesf@math.princeton.edu
 addpath ../
 clear; clc;
