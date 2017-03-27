@@ -97,13 +97,17 @@ function [results] = assign_csdp_ip(problem)
             sum(L') == 1;
     cvx_end
     P = closest_permutation(L);
-    P_s = project_to_permutation(L,A,B);
+    if problem.stoch
+        P_s = project_to_permutation(D,A*nA,B*nB);
+    else
+        P_s = P;
+    end
     
     results = struct;
     results.P = P;
     results.P_stochastic = P_s;
     results.D = L;
-    results.optval = cvx_optval
+    results.optval = cvx_optval;
     results.upper_bound = trace(A*P*B*P');
     results.upper_bound_stochastic = trace(A*P_s*B*P_s');
 end

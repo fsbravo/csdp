@@ -257,7 +257,11 @@ function [results] = assign_csdp_parallel(problem)
         end
     end
     P = closest_permutation(D);
-    P_s = project_to_permutation(D,A*nA,B*nB);
+    if problem.stoch
+        P_s = project_to_permutation(D,A*nA,B*nB);
+    else
+        P_s = P;
+    end
     
     results = struct;
     results.P = P;
