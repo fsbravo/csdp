@@ -36,7 +36,7 @@ for i=1:length(keys)
     problem.mode = 'admm';  
     
     fprintf('Solving %s with %d nodes per variable.\n', ...
-        keys{i}, problem.varsize,);
+        keys{i}, problem.varsize);
     
     % solve
     tic;
