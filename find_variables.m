@@ -32,7 +32,7 @@ end
 
 function [pairs] = find_pairs(B)
     B = B+B';
-    [i,j,~] = find(triu(B));
+    [i,j,~] = find(triu(B,1));
     pairs = [i, j];
 end
 
